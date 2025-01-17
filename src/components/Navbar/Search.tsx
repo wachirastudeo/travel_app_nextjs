@@ -22,16 +22,15 @@ const Search = () => {
     }, 500);
 
     useEffect(() => {
-        // code body
         if (!searchParams.get("search")) {
             setSearch("");
         }
-    }, [searchParams.get("search")]);
+    }, [searchParams]); // Updated dependency array
 
     return (
         <Input
             type="text"
-            placeholder="Seach Camping..."
+            placeholder="Search Camping..."
             className="max-w-xs"
             onChange={(e) => {
                 setSearch(e.target.value);
@@ -41,4 +40,5 @@ const Search = () => {
         />
     );
 };
+
 export default Search;

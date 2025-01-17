@@ -1,19 +1,28 @@
-// rafce
+// app/page.tsx
 import LoadingCard from "@/components/card/LoadingCard";
 import LandmarkContainer from "@/components/home/LandmarkContainer";
 import { Suspense } from "react";
 
-type Params = Promise<{ search?: string, category?: string }>
-const page = async ({ searchParams }: { searchParams: Params }) => {
-  const { search, category } = await searchParams;
+// Define proper typing for searchParams
+type PageProps = {
+  searchParams: Promise<{
+    search?: string;
+    category?: string;
+  }>;
+};
+
+export default async function Page({ searchParams }: PageProps) {
+  // Wait for searchParams to resolve
+  const params = await searchParams;
 
   return (
     <section>
       <Suspense fallback={<LoadingCard />}>
-        <LandmarkContainer search={search} category={category} />
+        <LandmarkContainer
+          search={params.search}
+          category={params.category}
+        />
       </Suspense>
     </section>
   );
-};
-
-export default page;
+}
