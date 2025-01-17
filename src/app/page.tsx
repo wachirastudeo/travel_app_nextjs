@@ -9,7 +9,6 @@ const page = () => {
   return (
     <section>
       <Suspense fallback={<LoadingCard />}>
-        xxxx
         {/* <LandmarkContainer search={search} category={category} /> */}
       </Suspense>
     </section>
