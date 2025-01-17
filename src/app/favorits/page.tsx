@@ -2,15 +2,15 @@ import { fetchFavorits } from "@/actions/actions"
 import EmptyList from "@/components/home/EmptyList"
 import LandmarkList from "@/components/home/LandmarkList"
 
-// rafce
-const FavoritsPage = async () => {
+const FavoritesPage = async () => {
     const favorites = await fetchFavorits()
     if (favorites.length === 0) {
-        return <EmptyList
-            heading="No items Favorits"
-        />
+        return (
+            <EmptyList heading="No Favorite" message="Please try again" btnText="Back Home" />
+        )
     }
-
-    return <LandmarkList landmarks={favorites} />
+    return (
+        <LandmarkList landmarks={favorites} />
+    )
 }
-export default FavoritsPage
+export default FavoritesPage

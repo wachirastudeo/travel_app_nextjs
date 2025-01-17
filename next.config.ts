@@ -6,15 +6,17 @@ const nextConfig: NextConfig = {
     fetches: {
       fullUrl: true,
     },
-  },
+  },    
+
   experimental:{
+    
     serverActions:{
       bodySizeLimit: '5mb'
     },
     webVitalsAttribution: ['CLS', 'LCP'],
 
   },
-  reactStrictMode:false,
+  reactStrictMode:true,
   images:{
     remotePatterns:[
       {
