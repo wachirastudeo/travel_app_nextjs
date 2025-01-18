@@ -3,15 +3,13 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Providers from "./Providers";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Mali } from 'next/font/google'
+import { Kanit } from 'next/font/google'
 import { Suspense } from "react";
 
-const mali = Mali({
-  weight: '400',
+const kanit = Kanit({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin', 'thai']
 })
-
-
 
 
 export const metadata: Metadata = {
@@ -28,7 +26,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${mali.className} antialiased`}
+          className={`${kanit.className} antialiased`}
         >      <Suspense>
 
             <Providers>
